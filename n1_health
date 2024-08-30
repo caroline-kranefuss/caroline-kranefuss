@@ -1,0 +1,9 @@
+import os
+import pandas as pd
+import shutil as stl
+
+# Read datasheet
+df = pd.read_csv(r"P:\CKranefuss\projects_and_asks\for_me\sql_practice\access.xlsx")
+
+print(df.head())
+
