@@ -12,4 +12,10 @@
 
 # Notes file for assignments: acknowledge help received
 
-# 
+# To test code, compile with javac -d out src/GreatCircle.java
+
+# To run program, java GreatCircle 48.87 -2.33 37.8 -122.4
+
+# Upload .java AND notes.txt when submitting hw
+
+# Can submit problems one by one but make sure final submission has all files
