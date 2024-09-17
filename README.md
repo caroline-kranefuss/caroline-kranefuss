@@ -1,6 +1,6 @@
 - I'm Caroline Kranefuss, a data analyst and lifelong learner.
 - I’m passionate about harnessing the power of data and computers to improve human health and business metrics.
-- I’m currently enrolled in a Data Structures course to continuously improve my skills.
+- I’m currently enrolled in a Data Structures and Algorithms course to continuously improve my skills.
 - Outside of work and class, I enjoy running, painting, and yoga.
 
 <!---
