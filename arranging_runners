@@ -1,0 +1,55 @@
+import re
+
+def main():
+    assign_runners(sort_runners(clean_runners(get_runners())))
+
+def get_runners():
+    runners = {}
+    counter = 0
+    
+    while counter < 6:
+        name = str(input("What's your name? ")).title()
+        if name in runners:
+            print("Runner already registered. Please enter a unique name, including last initial if needed.")
+            counter -= 1
+        preference = str(input("What slots would you like to run? "))
+        runners[name] = preference
+        counter += 1
+    return runners
+
+def clean_runners(roster):
+    cleaned_roster = {}
+    for key, value in roster.items():
+        cleaned_value = sorted(re.sub("\D", "", value))
+        cleaned_value_str = ''.join(cleaned_value)
+        cleaned_roster[key] = cleaned_value_str
+    return cleaned_roster
+
+def sort_runners(cleaned_runners):
+    runners_in_order = {}
+    counter = 1
+    while counter < 7:
+        for key, value in cleaned_runners.items():
+            if len(value) == counter:
+               runners_in_order[key] = value
+        counter += 1
+    return runners_in_order
+
+def assign_runners(assignments):
+    slots = {}
+    counter = 1
+    while counter < 7:
+        for key,value in assignments.items():
+            if len(value) == 1:
+                search_for = value
+                slots[value] = key
+            if search_for in value:
+                new_value = value.replace(search_for, '')
+                assignments[key] = new_value
+        counter += 1
+    for key, value in slots.items():
+        print(f"{value} will run slot {key}.")
+
+
+if __name__ == "__main__":
+    main()
