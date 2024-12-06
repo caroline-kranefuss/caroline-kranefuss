@@ -1,8 +1,5 @@
 import re
 
-def main():
-    assign_runners(sort_runners(clean_runners(get_runners())))
-
 def get_runners():
     runners = {}
     counter = 0
@@ -50,6 +47,8 @@ def assign_runners(assignments):
     for key, value in slots.items():
         print(f"{value} will run slot {key}.")
 
+def main():
+    assign_runners(sort_runners(clean_runners(get_runners())))
 
 if __name__ == "__main__":
     main()
