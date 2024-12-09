@@ -1,3 +1,7 @@
+// Purpose is to use a union-find data type to calculate the percolation threshold of a system
+// Example incudes conductivity of a metal, permeation of water from top layer to bottom layer, etc.
+// Using weighted quick union-find data type
+
 import dsa.WeightedQuickUnionUF; // importing weighted-quick union uf, can help with dynamic connectivity too
 import stdlib.In;
 import stdlib.StdOut;
@@ -135,15 +139,7 @@ public class Percolation {
         }
     }
 
-
-
- // we are already doing this above so comment this out as per recommendation of tutor
-//    Returns an integer ID (1...n) for site (i, j).
-//    private int encode(int i, int j) {
-//        return n * i + j + 1;
-//    }
-
-    // Unit tests the data type. [DO NOT EDIT]
+    // Unit tests the data type.
     public static void main(String[] args) {
         String filename = args[0];
         In in = new In(filename);
