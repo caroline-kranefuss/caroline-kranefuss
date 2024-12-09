@@ -1,3 +1,5 @@
+// What if there is a runoff in an election?
+
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
