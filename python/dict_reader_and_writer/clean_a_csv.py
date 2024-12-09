@@ -1,3 +1,7 @@
+"""
+A program to lean up a csv using DictReader and DictWriter
+"""
+
 import sys
 from csv import DictReader
 from csv import DictWriter
