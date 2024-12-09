@@ -1,3 +1,5 @@
+// Calculating the mean and standard deviation of a percolating system given n independent experiments
+
 import stdlib.StdOut;
 import stdlib.StdRandom;
 import stdlib.StdStats;
@@ -62,7 +64,7 @@ public class PercolationStats {
         return StdStats.mean(x) + (1.96 * StdStats.stddev(x) / Math.sqrt(m));
     }
 
-    // Unit tests the data type. [DO NOT EDIT]
+    // Unit tests the data type. 
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         int m = Integer.parseInt(args[1]);
