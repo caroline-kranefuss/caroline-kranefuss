@@ -1,3 +1,7 @@
+"""
+Using regular expressions to check if something is a valid ip address
+"""
+
 #.#.#.# --> each # is btween 0 and 255 inclusive
 
 import re
