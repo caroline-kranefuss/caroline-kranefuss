@@ -1,3 +1,5 @@
+// Using parseDouble to calculate the great circle distance between two points
+
 import stdlib.StdOut;
 
 public class GreatCircle {
