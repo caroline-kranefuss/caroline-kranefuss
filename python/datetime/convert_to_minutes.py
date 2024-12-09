@@ -1,3 +1,7 @@
+"""
+A program using the datetime library to compare a date of birth and "sing" the number of minutes from then to today's date
+"""
+
 from datetime import datetime
 from datetime import timedelta
 import inflect
