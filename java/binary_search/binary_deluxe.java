@@ -1,3 +1,5 @@
+// Creating a binary search deluxe class
+
 import dsa.Quick;
 
 import java.util.Comparator;
