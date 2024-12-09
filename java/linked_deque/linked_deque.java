@@ -1,3 +1,5 @@
+// Creating a generic linked deque class
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
