@@ -1,3 +1,5 @@
+// Another die roll, this time with the usage of comparable to return true if this die is the same as other, and false otherwise
+
 import stdlib.StdOut;
 import stdlib.StdRandom;
 
@@ -73,7 +75,7 @@ public class Die implements Comparable<Die> {
         return Integer.compare(this.value, other.value);
     }
 
-    // Unit tests the data type. [DO NOT EDIT]
+    // Unit tests the data type
     public static void main(String[] args) {
         Die a = new Die();
         while (a.value() != 3) {
