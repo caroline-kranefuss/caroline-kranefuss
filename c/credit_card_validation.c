@@ -1,3 +1,5 @@
+// A program to validate a credit card
+
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
