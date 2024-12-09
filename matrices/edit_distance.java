@@ -1,3 +1,7 @@
+// Calculating the edit distance of two given genes
+// Edit distance is a procedure to "measure the similarity between two DNA sequences by counting the minimum number of single-character edits required to transform one sequence into the other" (https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-017-0279-9#:~:text=Edit%20distance%20is%20a%20well,be%20shared%20in%20a%20plaintext."
+// This is an example of creating matrices
+
 import stdlib.StdArrayIO;
 import stdlib.StdIn;
 import stdlib.StdOut;
@@ -61,6 +65,5 @@ public class Alignment {
             j++;
             //penalty+= 2;
         }
-        // I feel like I should print penalty here but the autograder doesn't pass with it. Leaving the penalty variable in to show my thought process but it's commented out everywhere
     }
 }
