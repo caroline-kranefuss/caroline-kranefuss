@@ -1,3 +1,5 @@
+// Using the random library to choose a random card from a 52-card deck
+
 import stdlib.StdOut;
 import stdlib.StdRandom;
 
