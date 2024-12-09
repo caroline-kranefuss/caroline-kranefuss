@@ -1,7 +1,8 @@
-import random
+""" 
+Using the random library to create a game to guess what number the computer is thinking of
+"""
 
-def main():
-    guess(generate_number(get_level())) #so cool; can split up if big
+import random
 
 def get_level(): #doesn't take an argument here or above
     while True:
@@ -35,6 +36,9 @@ def guess(number_generated):
                 pass
         except ValueError:
             pass
+
+def main():
+    guess(generate_number(get_level())) #so cool; can split up if big
 
 
 if __name__ == "__main__":
