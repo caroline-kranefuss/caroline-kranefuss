@@ -1,3 +1,5 @@
+// Another way to randomly roll a die
+
 import stdlib.StdOut;
 import stdlib.StdRandom;
 
@@ -59,7 +61,7 @@ public class Die {
         }
     }
 
-    // Unit tests the data type. [DO NOT EDIT]
+    // Unit tests the data type.
     public static void main(String[] args) {
         Die die = new Die();
         die.roll();
