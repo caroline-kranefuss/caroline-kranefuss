@@ -1,3 +1,5 @@
+# Using jsons to convert bitcoin to USD
+
 # Specify as command-line arg the number of Bitcoins, n, they'd like to buy
         # "Missing command-line argument"
     # If cannot convert to float, sys.exit with error message
