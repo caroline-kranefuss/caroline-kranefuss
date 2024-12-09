@@ -1,4 +1,5 @@
-# A document to create and populate a csv
+# A document to create and populate a csv using os
+
 import os
 import pandas as pd
 import pathlib
