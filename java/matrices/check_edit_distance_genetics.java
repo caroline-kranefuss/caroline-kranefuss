@@ -1,3 +1,5 @@
+// A program to check the edit distance as defined in the other program in this folder
+
 import stdlib.StdIn;
 import stdlib.StdOut;
 
