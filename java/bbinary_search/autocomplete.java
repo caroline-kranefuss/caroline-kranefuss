@@ -1,14 +1,16 @@
+// Goal: write a program to implement autocomplete feature
+// for a given set of n strings and non-negative weights;
+// ie, given a prefix,
+// find all strings in the set that start with the prefix,
+// in descending order of weight
+// Example of my use of binary search
+
 import dsa.Quick;
 
 // added this to make a copy of terms
 import java.util.Arrays;
 import java.util.Comparator;
 
-// Goal: write a program to implement autocomplete feature
-// for a given set of n strings and non-negative weights;
-// ie, given a prefix,
-// find all strings in the set that start with the prefix,
-// in descending order of weight
 
 import stdlib.In;
 import stdlib.StdIn;
