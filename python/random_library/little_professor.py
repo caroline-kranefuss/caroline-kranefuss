@@ -1,3 +1,7 @@
+"""
+Using the random library to recreate the Little Professor game from the 90s
+"""
+
 import random
 
 def main():
