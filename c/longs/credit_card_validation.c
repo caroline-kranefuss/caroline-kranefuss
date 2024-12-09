@@ -1,4 +1,4 @@
-// A program to validate a credit card
+// A program to validate a credit card using longs
 
 #include <cs50.h>
 #include <stdio.h>
