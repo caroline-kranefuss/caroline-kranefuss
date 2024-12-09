@@ -1,3 +1,6 @@
+// Counting the number of letters, words, and sentences of a user input
+
+
 // Including any headers or libraries
 #include <ctype.h>
 #include <cs50.h>
