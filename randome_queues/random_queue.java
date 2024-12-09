@@ -1,3 +1,5 @@
+// Creating a random queue to resize an array; generic (ie no application)
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -143,7 +145,7 @@ public class ResizingArrayRandomQueue<T> implements Iterable<T> {
         q = temp;
     }
 
-    // Unit tests the data type. [DO NOT EDIT]
+    // Unit tests the data type.
     public static void main(String[] args) {
         ResizingArrayRandomQueue<Integer> q = new ResizingArrayRandomQueue<Integer>();
         int sum = 0;
