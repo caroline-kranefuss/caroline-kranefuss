@@ -66,7 +66,7 @@ public class Location {
         return name + " (" + lat + ", " + lon + ")";
     }
 
-    // Unit tests the data type. [DO NOT EDIT]
+    // Unit tests the data type
     // Passing in the values here
     public static void main(String[] args) {
         Location x = new Location("Paris", 48.51, -2.17);
