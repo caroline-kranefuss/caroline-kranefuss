@@ -1,3 +1,5 @@
+// Using the StdRandom library to roll a die
+
 import stdlib.StdOut;
 import stdlib.StdRandom;
 
