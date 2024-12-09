@@ -1,3 +1,6 @@
+"""
+Using the random and pyfiglet libraries to randomly convert a command-line argument's input into a figlet font
+
 from pyfiglet import Figlet
 import random
 import sys
