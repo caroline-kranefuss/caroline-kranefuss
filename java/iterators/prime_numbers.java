@@ -65,8 +65,7 @@ public class Primes implements Iterable<Integer> {
             return true;
         }
     }
-
-    // Unit tests the data type. [DO NOT EDIT]
+. [DO NOT EDIT]
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         for (int i : new Primes(n)) {
