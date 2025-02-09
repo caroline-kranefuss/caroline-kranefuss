@@ -109,7 +109,7 @@ public class Location implements Comparable<Location> {
         }
     }
 
-    // Unit tests the data type. [DO NOT EDIT]
+    // Unit tests the data type
     public static void main(String[] args) {
         Location[] wonders = new Location[7];
         wonders[0] = new Location("The Great Wall of China (China)", 40.6769, 117.2319);
