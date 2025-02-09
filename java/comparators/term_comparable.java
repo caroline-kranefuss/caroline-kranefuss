@@ -93,7 +93,7 @@ public class Term implements Comparable<Term> {
         }
     }
 
-    // Unit tests the data type. [DO NOT EDIT]
+    // Unit tests the data type
     public static void main(String[] args) {
         String filename = args[0];
         int k = Integer.parseInt(args[1]);
