@@ -75,7 +75,7 @@ public class Rational {
         return q == 0 ? p : gcd(q, p % q);
     }
 
-    // Unit tests the data type. [DO NOT EDIT]
+    // Unit tests the data type
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         Rational total = new Rational(0);
