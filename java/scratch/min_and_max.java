@@ -48,7 +48,7 @@ public class MinMax {
         protected Node next; // the next node
     }
 
-    // Unit tests the library. [DO NOT EDIT]
+    // Unit tests the library
     public static void main(String[] args) {
         int[] items = new int[1000];
         for (int i = 0; i < 1000; i++) {
