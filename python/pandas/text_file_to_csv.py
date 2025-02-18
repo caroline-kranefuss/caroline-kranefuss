@@ -10,5 +10,4 @@ df = df.drop(columns=df.loc[:, 'a':'d'].columns)
 df
 
 # Convert the text file to csv
-df = df.drop(columns=df.loc[:, 'a':'d'].columns)
-df
+df = df.to_csv('klunk_yc.csv')
