@@ -1,5 +1,7 @@
-// (Greet Three) Write a program called GreetThree.java that accepts name1 (String), name2 (String), and name3 (String) as command-line arguments
+// Prompt: Write a program called GreetThree.java that accepts name1 (String), name2 (String), and name3 (String) as command-line arguments
 // and writes the string “Hi name3, name2, and name1.” to standard output.
+
+// Note that solution does not actually assign variables to the command-line arguments given
 
 import stdlib.StdOut;
 
