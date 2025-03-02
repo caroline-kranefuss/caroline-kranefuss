@@ -16,7 +16,7 @@ public class ThreeSort {
         int xy_max = Math.max(x,y); 
         // the smaller of xy_min and z is the very smallest
         int smallest = Math.min(xy_min, z);
-        // the smaller of (xy_max) and (the larger of xy_min and z) is the middle
+        // the smaller of xy_max and "the larger of xy_min and z" is the middle
         int middle = Math.min(xy_max, Math.max(xy_min, z));
         // find the larger of xy_max and z for the largest
         int largest = Math.max(xy_max, z);
