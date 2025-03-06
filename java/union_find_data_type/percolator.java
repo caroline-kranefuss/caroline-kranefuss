@@ -139,24 +139,4 @@ public class Percolation {
         }
     }
 
-    // Unit tests the data type.
-    public static void main(String[] args) {
-        String filename = args[0];
-        In in = new In(filename);
-        int n = in.readInt();
-        Percolation perc = new Percolation(n);
-        while (!in.isEmpty()) {
-            int i = in.readInt();
-            int j = in.readInt();
-            perc.open(i, j);
-        }
-        StdOut.printf("%d x %d system:\n", n, n);
-        StdOut.printf("  Open sites = %d\n", perc.numberOfOpenSites());
-        StdOut.printf("  Percolates = %b\n", perc.percolates());
-        if (args.length == 3) {
-            int i = Integer.parseInt(args[1]);
-            int j = Integer.parseInt(args[2]);
-            StdOut.printf("  isFull(%d, %d) = %b\n", i, j, perc.isFull(i, j));
-        }
-    }
 }
