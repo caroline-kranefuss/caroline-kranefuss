@@ -109,25 +109,4 @@ public class Location implements Comparable<Location> {
         }
     }
 
-    // Unit tests the data type
-    public static void main(String[] args) {
-        Location[] wonders = new Location[7];
-        wonders[0] = new Location("The Great Wall of China (China)", 40.6769, 117.2319);
-        wonders[1] = new Location("Petra (Jordan)", 30.3286, 35.4419);
-        wonders[2] = new Location("The Colosseum (Italy)", 41.8902, 12.4923);
-        wonders[3] = new Location("Chichen Itza (Mexico)", 20.6829, -88.5686);
-        wonders[4] = new Location("Machu Picchu (Peru)", -13.1633, -72.5456);
-        wonders[5] = new Location("Taj Mahal (India)", 27.1750, 78.0419);
-        wonders[6] = new Location("Christ the Redeemer (Brazil)", 22.9519, -43.2106);
-        Quick.sort(wonders);
-        StdOut.println("Seven wonders in the order of their distance to Parthenon (Greece):");
-        for (Location wonder : wonders) {
-            StdOut.println("  " + wonder);
-        }
-        Quick.sort(wonders, Location.nameOrder());
-        StdOut.println("Seven wonders in alphabetical order:");
-        for (Location wonder : wonders) {
-            StdOut.println("  " + wonder);
-        }
-    }
 }
