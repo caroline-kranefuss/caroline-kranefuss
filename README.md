@@ -11,5 +11,4 @@ I taught myself a small amount of C through an online self-paced version of Harv
 
 I self-taught SQL in my prior roles as well; though not displayed in my GitHub, I love this langauge and the many results that can come from its queries.
 
-I work with MATLAB and R in my current role as a Computational Neuroimaging Data Analyst. The code I write for this role is proprietary information of Massachusetts General Hospital and is thus not displayed. 
-
+I also work with MATLAB and R in my current role as a Computational Neuroimaging Data Analyst. 
