@@ -1,6 +1,7 @@
 The function of this site is to demonstrate my proficiency in various programming languages.
 Projects are organized by language and the main skill demonstrated.
 Please explore!
+A good place to start is in the "Highlighted" folder, where some of my favorite projects are stored.
 
 I taught myself Python through an online self-paced version of Harvard College's Introduction to Programming with Python course. I also used it in my roles as a Data Analyst at Smarter Travel and a Data Analyst II at Gentuity, LLC. Finally, I currently use it in my role as a Computational Neuroimaging Data Analyst. 
 
