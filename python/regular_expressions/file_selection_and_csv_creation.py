@@ -28,7 +28,7 @@ def turn_to_list():
 # Take only the nifti files
 def nifti():
     nii_files = []
-    for i in files2:
+    for i in files:
         if ".nii" in i:
             nii_files.append(i)
     return nii_files
