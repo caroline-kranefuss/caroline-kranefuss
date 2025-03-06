@@ -2,12 +2,14 @@
 
 # The goal of this program is to choose one file from each subject folder to analyze based on criteria such as which file is merged (ie has a time dimension of one) and which file starts with a digit instead of an underscore.
 
-# Then, I want to create a csv matching the csv that goes into the MATLAB script, ie testfile.xlsx (need to confirm this is what the file is called), that has the filename and filepath for each file I chose.
+# Then, I want to create a csv matching the csv that goes into the Centiloid_Pipeline_April_matlab.m script, ie testfile.xlsx (need to confirm this is what the file is called), that has the filename and filepath for each file I chose.
 
 # You can do this for either a set of PET filepaths or MR filepaths. You can then manually combine the csv's generated to create a single csv containing PET and MR values.
 
+
 import pandas as pd
 import re
+import os 
 
 # Import all the Cycle1 PET filepaths
 # df = pd.read_csv("pet_filepaths.csv")
@@ -15,18 +17,31 @@ import re
 # OR
 
 # Import all the Cycle1 MR filepaths
-# df = pd.read_csv("mr_filepaths.csv")
+df = pd.read_csv("mr_filepaths.csv")
+
+
+def main():
+    files = turn_to_list(df)
+    nii_files = nifti(files)
+    grouped_subjects = first_four(nii_files)
+    grouped_subjects_d = take_digits(grouped_subjects)
+    grouped_subjects_d = remove_duplicates(grouped_subjects_d)
+    grouped_subjects_d = remove_no_merge(grouped_subjects_d)
+    gss, gsm = gss_gsm(grouped_subjects_d)
+    gss, gsm = remove_strange(gss, gsm)
+    df_final = convert(gss, gsm)
+    print("Congrats! Your csv has been created.")
 
 
 # Turn df into a list so we can perform operations on it
-def turn_to_list():
+def turn_to_list(df):
     files = df.values.tolist()
     files = [' '.join(file) for file in files]
     return(files)
 
 
 # Take only the nifti files
-def nifti():
+def nifti(files):
     nii_files = []
     for i in files:
         if ".nii" in i:
@@ -35,7 +50,7 @@ def nifti():
 
 
 # Group subjects by subject id
-def first_four():
+def first_four(nii_files):
     # Dictionary to hold lists of files grouped by the first 4 digits
     grouped_subjects = {}
     
@@ -57,16 +72,12 @@ def first_four():
             # Add the file to the corresponding subject_id group
             grouped_subjects[subject_id].append(i)
     
-    # Display the grouped files
-    for subject, files in grouped_subjects.items():
-        print(f"Subject {subject}: {files}")
-    
     return(grouped_subjects)
 
 
 # For each subject, if a file starts with a digit, take only the file(s) that start with a digit, otherwise keep all the files for a given subject
 
-def take_digits():
+def take_digits(grouped_subjects):
     # Create the regex to search for a file starting with a digit
     m = r'^\d'
     
@@ -105,7 +116,7 @@ def take_digits():
 
 # Remove duplicate values that got added; I can't figure out why they're being added
 
-def remove_duplicates():
+def remove_duplicates(grouped_subjects_d):
     for key, value in grouped_subjects_d.items():
         # Remove duplicates by converting to a set, then back to a list
         grouped_subjects_d[key] = list(set(value))
@@ -116,7 +127,7 @@ def remove_duplicates():
 
 # Take out anything that doesn't say merge if a merge file is in the folder
 
-def remove_no_merge():
+def remove_no_merge(grouped_subjects_d):
     # create a dict to represent nii merge
     nii_m = {}
     # for every subject in grouped_subjects_d
@@ -140,7 +151,7 @@ def remove_no_merge():
 
 # Split the dict into key-value pairs that have one value, and key-value pairs that have multiple values so I can tease out which ones I have more work to do on
 
-def gss_gsm():
+def gss_gsm(grouped_subjects_d):
     # dict for key-value pairs that have one value
     gss = {}
     
@@ -158,73 +169,43 @@ def gss_gsm():
 
 # Make a third dictionary - pull out 6006 6053 6054 6072 6078 (since I can't figure out which of those to use) and put them in their own dict, leaving the rest in gsm
 
-def remove_strange():
-    # Define the subjects to remove
+def remove_strange(gss, gsm):
+    # Define the subjects to remove from gsm
     remove = {'6006', '6053', '6054', '6072', '6078'}
-    
-    # u for unknown
-    gsu = {}
-    
-    # check
-    # print(gsu)
-    
-    # gsm.items() returns an iterator instead of a list, which leads to the RuntimeError "dictionary changed size during iteration;" convert to a list to solve this
-    for key, value in list(grouped_subjects_d.items()):
+
+    # Remove the strange subjects from gsm
+    for key, value in list(gsm.items()):
         if key in remove:
+            # iterate over the files in the list that comprises each value, take the keys I can't figure out out of the gsm dict
+            del gsm[key]
     
-            print(f"Match found for key {key}, adding to gsu")
-            
-            # iterate over the files in the list that comprises each value, put each key I can't figure out in gsu
-            for file in value:
-                gsu.update({key: value})
-                
-            # take the keys I can't figure out out of the gsm dict
-            del grouped_subjects_d[key]
+    # m = r'(Cycle1\/)(.*)(\/)'
     
-    print("The subjects for which we want to combine all the nifti files within the subject's folder into a single nifti file are", end = " ") 
-    for key, value in gsm.items():
-        print(f"\"{key}\"", sep = " ", end = " ")
-    print(".\n") 
-    print("The folders in which these subjects are located are as follows:", end = " ")
+    # # create a list to store matches in
+    # folder_matches = []
     
-    m = r'(Cycle1\/)(.*)(\/)'
+    # for key, value in gss.items():
+    #     for file in value:
+    #         match = re.search(m, file)
+    #         if match:
+    #             if match.group(2) not in folder_matches:
+    #                 folder_matches.append(match.group(2))
     
-    # create a list to store matches in
-    folder_matches = []
-    
-    for key, value in gsm.items():
-        for file in value:
-            match = re.search(m, file)
-            if match:
-                if match.group(2) not in folder_matches:
-                    folder_matches.append(match.group(2))
-    
-    for f in folder_matches:
-        print(f"\"{f}\"", sep=" ", end=" ")
-    
-    return(folder_matches)
+    return(gss, gsm)
 
 
-# Make a df with the columns required for the Centiloid pipeline, either with PET values or MR values. PET frame number can be added manually
-def make_df():
+# Output a final csv
+def convert(gss, gsm):
+
+    # Make a df with the columns required for the Centiloid pipeline, either with PET values or MR values. PET frame number can be added manually
     data_final = {'sID': [],
-                'fulldirectory of ___ files': [],
-                '___ file': []
-                 }
-    
+            'fulldirectory of ___ files': [],
+            '___ file': []
+             }
+
     df_final = pd.DataFrame(data_final)
-
-    return(df_final)
-
-
-# Convert the items in the gss dict to full directory and pet files
-
-def convert():
     
-    # Import os to split the paths
-    import os
-    
-    # Loop through the dictionary: for each key-value pair (subject and its file)
+    # Loop through the gss dictionary: for each key-value pair (subject and its file)
     for key, value in gss.items():
         
         # Iterate through each file path in the list for the subject
@@ -235,27 +216,26 @@ def convert():
             dir_part = str(dir_part)
             file_part = str(file_part)
     
-            # Print as a check
-            print(f"Directory part: {dir_part}")
-            print(f"File part: {file_part}")
+            # Use .loc to add the data as a new row to the DataFrame
+            df_final.loc[len(df_final)] = [key, dir_part, file_part]
+
+    # Loop through the gsm dictionary: for each key-value pair (subject and its file)
+    for key, value in gsm.items():
+        
+        # Iterate through each file path in the list for the subject
+        for file_path in value:
+    
+            # Split into full directory and pet file and convert into a string
+            dir_part, file_part = os.path.split(file_path)
+            dir_part = str(dir_part)
+            file_part = str(file_part)
     
             # Use .loc to add the data as a new row to the DataFrame
             df_final.loc[len(df_final)] = [key, dir_part, file_part]
-    
-    return(df_final)
+
+    # You will need to name this csv as either PET or MR to avoid overwriting
+    return(df_final.to_csv('MR_fulldirectory_and_files.csv', index=False))
 
 
-def main():
-    turn_to_list(df)
-    nifti(files)
-    first_four(nii_files)
-    take_digits(grouped_subjects)
-    remove_duplicates(grouped_subjects_d)
-    remove_no_merge(grouped_subjects_d)
-    gss_gsm(grouped_subjects_d)
-    remove_strange(grouped_subjects_d, gss, gsm)
-    make_df(folder_matches)
-    convert(df_final)
-
-
-main()
+if __name__ == "__main__":
+    main()
