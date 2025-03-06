@@ -92,29 +92,4 @@ public class Term implements Comparable<Term> {
             return a.compareTo(b);
         }
     }
-
-    // Unit tests the data type
-    public static void main(String[] args) {
-        String filename = args[0];
-        int k = Integer.parseInt(args[1]);
-        In in = new In(filename);
-        int n = in.readInt();
-        Term[] terms = new Term[n];
-        for (int i = 0; i < n; i++) {
-            long weight = in.readLong();
-            in.readChar();
-            String query = in.readLine();
-            terms[i] = new Term(query.trim(), weight);
-        }
-        StdOut.printf("Top %d by lexicographic order:\n", k);
-        Quick.sort(terms);
-        for (int i = 0; i < k; i++) {
-            StdOut.println(terms[i]);
-        }
-        StdOut.printf("Top %d by reverse-weight order:\n", k);
-        Quick.sort(terms, Term.reverseWeightOrder());
-        for (int i = 0; i < k; i++) {
-            StdOut.println(terms[i]);
-        }
-    }
 }
