@@ -75,27 +75,4 @@ public class Die implements Comparable<Die> {
         return Integer.compare(this.value, other.value);
     }
 
-    // Unit tests the data type
-    public static void main(String[] args) {
-        Die a = new Die();
-        while (a.value() != 3) {
-            a.roll();
-        }
-        Die b = new Die();
-        while (b.value() != 5) {
-            b.roll();
-        }
-        Die c = new Die();
-        while (c.value() != 3) {
-            c.roll();
-        }
-        StdOut.println("Dice a, b, and c:");
-        StdOut.println(a);
-        StdOut.println(b);
-        StdOut.println(c);
-        StdOut.println("a.equals(b)    = " + a.equals(b));
-        StdOut.println("a.equals(c)    = " + a.equals(c));
-        StdOut.println("a.compareTo(b) = " + a.compareTo(b));
-        StdOut.println("a.compareTo(c) = " + a.compareTo(c));
-    }
 }
