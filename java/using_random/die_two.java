@@ -61,10 +61,4 @@ public class Die {
         }
     }
 
-    // Unit tests the data type.
-    public static void main(String[] args) {
-        Die die = new Die();
-        die.roll();
-        StdOut.println(die);
-    }
 }
