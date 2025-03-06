@@ -1,8 +1,8 @@
-# ADDS-ABCDS File Selection and CSV Creation
+# File Selection and CSV Creation
 
 # The goal of this program is to choose one file from each subject folder to analyze based on criteria such as which file is merged (ie has a time dimension of one) and which file starts with a digit instead of an underscore.
 
-# Then, I want to create a csv matching the csv that goes into the Centiloid_Pipeline_April_matlab.m script, ie testfile.xlsx (need to confirm this is what the file is called), that has the filename and filepath for each file I chose.
+# Then, I want to create a csv matching the csv that goes into the MATLAB script, ie testfile.xlsx (need to confirm this is what the file is called), that has the filename and filepath for each file I chose.
 
 # You can do this for either a set of PET filepaths or MR filepaths. You can then manually combine the csv's generated to create a single csv containing PET and MR values.
 
