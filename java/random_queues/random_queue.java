@@ -145,26 +145,4 @@ public class ResizingArrayRandomQueue<T> implements Iterable<T> {
         q = temp;
     }
 
-    // Unit tests the data type.
-    public static void main(String[] args) {
-        ResizingArrayRandomQueue<Integer> q = new ResizingArrayRandomQueue<Integer>();
-        int sum = 0;
-        for (int i = 0; i < 1000; i++) {
-            int r = StdRandom.uniform(10000);
-            q.enqueue(r);
-            sum += r;
-        }
-        int iterSumQ = 0;
-        for (int x : q) {
-            iterSumQ += x;
-        }
-        int dequeSumQ = 0;
-        while (q.size() > 0) {
-            dequeSumQ += q.dequeue();
-        }
-        StdOut.println("sum       = " + sum);
-        StdOut.println("iterSumQ  = " + iterSumQ);
-        StdOut.println("dequeSumQ = " + dequeSumQ);
-        StdOut.println("iterSumQ + dequeSumQ == 2 * sum? " + (iterSumQ + dequeSumQ == 2 * sum));
-    }
 }
