@@ -1,4 +1,5 @@
 import math as math
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 class Ecdf():
