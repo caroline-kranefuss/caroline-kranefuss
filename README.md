@@ -1,7 +1,4 @@
-The function of this site is to demonstrate my explorations in various programming languages.
-Projects are organized by language and the main skill demonstrated.
-Please explore!
-A good place to start is in the "Highlighted" folder, where some of my favorite projects are stored.
+The function of this site is to demonstrate my explorations in various programming languages. Please explore! Of particular note is a recent study on the impact of wildfires, weather, and temperature on air quality, stored in the modeling_air_quality_fire_machine_learning repo.
 
 
 About my present:
