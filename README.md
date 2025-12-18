@@ -1,4 +1,9 @@
-The function of this site is to demonstrate my explorations in various programming languages. Please explore! Of particular note is a recent study on the impact of wildfires, weather, and temperature on air quality, stored in the modeling_air_quality_fire_machine_learning repo.
+The function of this site is to demonstrate my explorations in various programming languages. Please explore! 
+
+Of particular note is a recent study on the impact of wildfires, weather, and temperature on air quality, stored in the modeling_air_quality_fire_machine_learning repo.
+
+Another project of interest explores US facilities emissions, stored in the us_facilities_emissions repo.
+
 
 
 About my present:
